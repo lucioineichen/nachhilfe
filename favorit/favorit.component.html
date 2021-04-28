@@ -1,0 +1,11 @@
+<ion-buttons>
+  <ion-button (click)="onFavoriteClicked()" style="height: 5rem; width: 5rem">
+    <ion-icon
+      style="font-size: 3rem"
+      class="favoritIcon"
+      slot="icon-only"
+      color="primary"
+      [name]="isFavorite ? 'heart' : 'heart-outline'"
+    ></ion-icon>
+  </ion-button>
+</ion-buttons>

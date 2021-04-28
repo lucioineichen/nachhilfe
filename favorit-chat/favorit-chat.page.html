@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/nachrichten"></ion-back-button>
+    </ion-buttons>
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <ion-img [src]="partner.profilepic"> </ion-img>
+      </ion-avatar>
+      <ion-label> {{ partner.name }} </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content
+  ><ion-list>
+    <div
+      *ngFor="let text of texts"
+      [style]="(text.senderId === partner.id) ? 'text-align: left' : 'text-align: right'"
+    >
+      <ion-chip [color]="(text.senderId === partner.id) ? 'primary' : 'success'"
+        >{{ text.content }}</ion-chip
+      >
+    </div>
+  </ion-list></ion-content
+>
+<ion-footer class="no-border">
+  <ion-toolbar style="border-width: 0px">
+    <app-write (onSendText)="sendText($event)"></app-write>
+  </ion-toolbar>
+</ion-footer>

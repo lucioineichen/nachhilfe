@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mein Profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="tutor">
+  <img
+    [src]="(tutor.profilepics.length > 0) ? tutor.profilepics[0] : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sabab-lou.de%2Fwp-content%2Fuploads%2F2019%2F07%2FProfilbild-dummy.png&f=1&nofb=1'"
+    alt="profilbild"
+  />
+  <div>{{ "CHF " + tutor.hourlyRate }}</div>
+  <div>{{ tutor.subjects }}</div>
+  <div>{{ tutor.region.zipCode + " " + tutor.region.city }}</div>
+  <div>{{ tutor.age + " Jahre" }}</div>
+  <!-- <div>
+    <app-favorit
+      [initialIstFavorit]="meinprofil.favorit"
+      (favoritClicked)="onFavoritClick($event)"
+    ></app-favorit>
+  </div>
+  <div>
+    <app-reviews-vorschau [reviews]="meinprofil.reviews"></app-reviews-vorschau>
+  </div> -->
+
+  <div>{{ tutor.description }}</div>
+</ion-content>
+
+<ion-content *ngIf="student">
+  <ion-img
+    *ngIf="student.profilepics[0]"
+    [src]="student.profilepics[0]"
+  ></ion-img>
+  <h1>{{ student.post.title }}</h1>
+  <p>{{ student.post.comment }}</p>
+</ion-content>

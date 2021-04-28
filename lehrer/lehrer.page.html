@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title> {{ tutor.name }} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img
+    [src]="(tutor.profilepics.length > 0) ? tutor.profilepics[0] : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sabab-lou.de%2Fwp-content%2Fuploads%2F2019%2F07%2FProfilbild-dummy.png&f=1&nofb=1'"
+    alt="profilbild"
+  />
+  <div>{{ "CHF " + tutor.hourlyRate }}</div>
+  <div>{{ tutor.subjects }}</div>
+  <div>{{ tutor.region.zipCode + " " + tutor.region.city }}</div>
+  <div>{{ tutor.age + " Jahre" }}</div>
+  <div>
+    <app-favorit
+      [isFavorite]="tutor.favorite"
+      (favoriteClicked)="onFavoriteClicked($event)"
+    ></app-favorit>
+  </div>
+  <div>
+    <app-reviews-vorschau [reviews]="tutor.reviews"></app-reviews-vorschau>
+  </div>
+
+  <div>{{ tutor.description }}</div>
+</ion-content>

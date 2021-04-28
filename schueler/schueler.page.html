@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/infoboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title> {{ student.name }} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img *ngIf="student.profilepics" [src]="student.profilepics[0]"></ion-img>
+  <h1>{{ student.post.title }}</h1>
+  <p>{{ student.post.comment }}</p>
+</ion-content>

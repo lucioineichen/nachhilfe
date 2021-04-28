@@ -1,0 +1,15 @@
+<ion-item
+  routerDirection="forward"
+  [routerLink]="['/', 'chat', chatPreview.chatId]"
+>
+  <ion-avatar slot="start">
+    <ion-img [src]="chatPreview.partnerProfilpic"> </ion-img>
+  </ion-avatar>
+  <ion-label
+    ><h2>{{ chatPreview.partnerName }}</h2>
+    <p *ngIf="chatPreview.latestText">
+      {{ chatPreview.latestText.content }}
+    </p>
+    <p *ngIf="!chatPreview.latestText">Schreibe deine erste Nachricht</p>
+  </ion-label>
+</ion-item>

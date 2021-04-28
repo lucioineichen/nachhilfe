@@ -1,0 +1,40 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      <ion-avatar class="padding">
+        <img [src]="tutor.profilepics[0]" />
+      </ion-avatar>
+      {{ tutor.name }}
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <div>{{ tutor.subjects | subjects }}</div>
+    <div>{{ tutor.tutoringPlace | tutoringPlace }}</div>
+    <div>
+      {{ tutor.region.zipCode + " " + tutor.region.city }}
+    </div>
+    <div>{{ tutor.age + " Jahre" }}</div>
+    <div></div>
+    <div>
+      <app-favorit
+        [isFavorite]="tutor.favorite"
+        (favoriteClicked)="onFavoriteClicked($event)"
+      ></app-favorit>
+    </div>
+    <div>
+      <app-reviews-vorschau [reviews]="tutor.reviews"></app-reviews-vorschau>
+    </div>
+    <div>{{ "CHF " + tutor.hourlyRate }}</div>
+    <div>
+      <ion-buttons>
+        <!--  / = absolute navigation -->
+        <ion-button
+          routerDirection="forward"
+          [routerLink]="['/', 'tutor', tutor.id]"
+        >
+          <ion-icon spot="icon-only" name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </ion-card-content>
+</ion-card>

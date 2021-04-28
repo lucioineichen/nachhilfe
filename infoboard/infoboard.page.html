@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Infoboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="students.length > 0">
+  <ion-grid>
+    <ion-row *ngFor="let student of students">
+      <ion-col>
+        <app-studentpost [student]="student"></app-studentpost>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-content *ngIf="students.length === 0">Es hat keine Schüler</ion-content>
